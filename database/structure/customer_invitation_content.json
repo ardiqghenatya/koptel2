@@ -1,0 +1,18 @@
+[
+	{
+		"field":"subject:string",
+		"validations":"required"
+	},
+	{
+		"field":"body:longtext",
+		"validations":"required"
+	},
+	{
+		"field":"is_sent:integer",
+		"validations":""
+	},
+	{
+		"field":"sent_date:datetime",
+		"validations":""
+	}
+]

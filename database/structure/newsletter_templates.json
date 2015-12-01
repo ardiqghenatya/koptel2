@@ -1,0 +1,10 @@
+[
+	{
+		"field":"name:string",
+		"validations":"required"
+	},
+	{
+		"field":"body:longText",
+		"validations":"required"
+	}
+]

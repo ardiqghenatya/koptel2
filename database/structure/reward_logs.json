@@ -1,0 +1,22 @@
+[
+	{
+		"field":"reward_type_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"customer_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"reference_id:integer:nullable",
+		"validations":""
+	},
+	{
+		"field":"point:integer:default,0",
+		"validations":"required"
+	},
+	{
+		"field":"message:text",
+		"validations":""
+	}
+]

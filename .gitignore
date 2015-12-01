@@ -1,0 +1,7 @@
+/vendor
+/node_modules
+.env
+/nbproject/private/
+/public/.htaccess
+/public/uploads
+/logs

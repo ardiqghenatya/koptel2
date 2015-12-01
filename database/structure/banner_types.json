@@ -1,0 +1,10 @@
+[
+	{
+		"field":"name:string",
+		"validation":"required"
+	},
+	{
+		"field":"slug:string",
+		"validation":"required"
+	}
+]

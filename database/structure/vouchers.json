@@ -1,0 +1,26 @@
+[
+	{
+		"field":"code:string,50",
+		"validations":"required"
+	},
+	{
+		"field":"value:integer",
+		"validations":"required"
+	},
+	{
+		"field":"status:boolean",
+		"validations":"required"
+	},
+	{
+		"field":"operation:string,1:default,-",
+		"validations":"required"
+	},
+	{
+		"field":"limit:bigInteger:default,1",
+		"validations":"required"
+	},
+	{
+		"field":"date_expired:dateTime",
+		"validations":"required"
+	}
+]

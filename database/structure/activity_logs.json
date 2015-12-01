@@ -1,0 +1,22 @@
+[
+	{
+		"field":"user_id:integer:nullable",
+		"validations":""
+	},
+	{
+		"field":"model_id:string:nullable",
+		"validations":""
+	},
+	{
+		"field":"data_id:string:nullable",
+		"validations":""
+	},
+	{
+		"field":"text:text",
+		"validations":"required"
+	},
+	{
+		"field":"ip_address:string,65",
+		"validations":"required"
+	}
+]

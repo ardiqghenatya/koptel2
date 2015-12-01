@@ -1,0 +1,18 @@
+[
+	{
+		"field":"parent_id:integer:nullable",
+		"validations":""
+	},
+	{
+		"field":"label:string",
+		"validations":"required"
+	},
+	{
+		"field":"link:string",
+		"validations":"required"
+	},
+	{
+		"field":"order:integer:default,0",
+		"validations":"required"
+	}
+]

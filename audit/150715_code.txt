@@ -1,0 +1,57 @@
+Local ruleset file found. Default ruleset will be ignored.
+Runing PHP Mess Detector...
+
+C:\xampp2\htdocs\oktagon-api\app\Helpers\ProductCategoriesHelper.php:101	Avoid unused private methods such as 'hasChildren'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\BannerTypesAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\BannersAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\BestSellerAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\CityAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\CountryAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\FilterConfigAPIController.php:125	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\MenuAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\OrderStatusAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\PageCategoriesAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\PagesAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\PaymentMethodAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\PriceCategoriesAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductCategoriesAPIController.php:18	Avoid excessively long variable names like $productCategoriesRepo. Keep variable name length under 20.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductCategoriesAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductImagesAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductLastViewAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductRelatedAPIController.php:171	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductSaleAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductSellPriceAPIController.php:123	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductsAPIController.php:12	The class ProductsAPIController has 15 methods. Consider refactoring ProductsAPIController to keep number of methods under 10.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\ProductsAPIController.php:267	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\API\StaffFavouriteAPIController.php:182	Avoid unused parameters such as '$id'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\BannerTypesController.php:66	Avoid unused local variables such as '$bannerTypes'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\BannersController.php:66	Avoid unused local variables such as '$banners'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\BestSellerController.php:66	Avoid unused local variables such as '$bestSeller'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\CityController.php:66	Avoid unused local variables such as '$city'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\CountryController.php:66	Avoid unused local variables such as '$country'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\FilterConfigController.php:66	Avoid unused local variables such as '$filterConfig'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\MenuController.php:66	Avoid unused local variables such as '$menu'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\OrderStatusController.php:66	Avoid unused local variables such as '$orderStatus'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\PageCategoriesController.php:66	Avoid unused local variables such as '$pageCategories'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\PagesController.php:66	Avoid unused local variables such as '$pages'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\PaymentMethodController.php:66	Avoid unused local variables such as '$paymentMethod'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\PriceCategoriesController.php:66	Avoid unused local variables such as '$priceCategories'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductCategoriesController.php:17	Avoid excessively long variable names like $productCategoriesRepo. Keep variable name length under 20.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductCategoriesController.php:66	Avoid unused local variables such as '$productCategories'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductImagesController.php:66	Avoid unused local variables such as '$productImages'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductLastViewController.php:66	Avoid unused local variables such as '$productLastView'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductRelatedController.php:66	Avoid unused local variables such as '$productRelated'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductSaleController.php:66	Avoid unused local variables such as '$productSale'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductSellPriceController.php:66	Avoid unused local variables such as '$productSellPrice'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductsController.php:36	Avoid unused local variables such as '$products'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductsController.php:38	Avoid unused local variables such as '$attributes'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\ProductsController.php:66	Avoid unused local variables such as '$products'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Controllers\StaffFavouriteController.php:66	Avoid unused local variables such as '$staffFavourite'.
+C:\xampp2\htdocs\oktagon-api\app\Http\Requests\Request.php:5	The class Request has 20 children. Consider to rebalance this class hierarchy to keep number of children under 15.
+C:\xampp2\htdocs\oktagon-api\app\Libraries\Repositories\BannersRepository.php:66	The method search uses an else expression. Else is never necessary and you can simplify the code to work without else.
+C:\xampp2\htdocs\oktagon-api\app\Libraries\Repositories\MenuRepository.php:22	The method search has a boolean flag argument $tree, which is a certain sign of a Single Responsibility Principle violation.
+C:\xampp2\htdocs\oktagon-api\app\Libraries\Repositories\MenuRepository.php:89	Avoid unused private methods such as 'hasChildren'.
+C:\xampp2\htdocs\oktagon-api\app\Libraries\Repositories\MenuRepository.php:91	Avoid unused local variables such as '$results'.
+C:\xampp2\htdocs\oktagon-api\app\Libraries\Repositories\ProductsRepository.php:16	The class ProductsRepository has an overall complexity of 70 which is very high. The configured complexity threshold is 50.
+C:\xampp2\htdocs\oktagon-api\app\Models\Banners.php:60	Avoid unused local variables such as '$uploads'.
+Done.

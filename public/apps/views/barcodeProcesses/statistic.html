@@ -1,0 +1,45 @@
+<div class="page page-dashboard">
+
+
+  <!-- row -->
+  <div class="row">
+
+    <!-- col -->
+    <div class="col-md-12">
+
+      <!-- tile -->
+      <section class="tile" fullscreen="isFullscreen01">
+
+        <!-- tile header -->
+        <div class="tile-header bg-greensea dvd dvd-btm">
+          <h1 class="custom-font"><strong>Statistik </strong>Penyimpanan</h1>
+          <ul class="controls">
+            <li xng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+                <span>{{startDate | moment:'MMMM D, YYYY'}} - {{endDate | moment:'MMMM D, YYYY'}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+            </li>
+            <li><a href tile-control-refresh ng-click="ajaxFaker()"><fa name="refresh"></fa> </a></li>
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile widget -->
+        <div class="tile-widget bg-greensea" xng-controller="StatisticsChartCtrl">
+
+          <flot dataset="dataset" options="options" height="350px"></flot>
+
+        </div>
+        <!-- /tile widget -->
+
+      </section>
+      <!-- /tile -->
+
+    </div>
+    <!-- /col -->
+
+
+  </div>
+  <!-- /row -->
+
+</div>

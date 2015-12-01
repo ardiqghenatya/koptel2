@@ -1,0 +1,18 @@
+[
+	{
+		"field":"ORDER_NO:integer",
+		"validations":""
+	},
+	{
+		"field":"STATUS:string",
+		"validations":""
+	},
+	{
+		"field":"ITEM_CODE:string",
+		"validations":""
+	},
+	{
+		"field":"AMOUNT:integer",
+		"validations":""
+	}
+]

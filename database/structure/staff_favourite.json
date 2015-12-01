@@ -1,0 +1,6 @@
+[
+	{
+		"field":"item_no:string",
+		"validation":"required"
+	}
+]

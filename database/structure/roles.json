@@ -1,0 +1,18 @@
+[
+	{
+		"field":"name:string",
+		"validations":"required"
+	},
+	{
+		"field":"slug:string",
+		"validations":"required"
+	},
+	{
+		"field":"description:string:nullable",
+		"validations":""
+	},
+	{
+		"field":"level:integer",
+		"validations":"required"
+	}
+]

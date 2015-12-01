@@ -1,0 +1,18 @@
+[
+	{
+		"field":"file_description:string",
+		"validations":""
+	},
+	{
+		"field":"file:string",
+		"validations":"required"
+	},
+	{
+		"field":"file_path:string",
+		"validations":""
+	},
+	{
+		"field":"media_for:string",
+		"validations":"required"
+	}
+]

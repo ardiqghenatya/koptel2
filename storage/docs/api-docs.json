@@ -1,0 +1,5826 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is API documentation for Oktagon E-Commerce Projects",
+        "version": "1.0.0",
+        "title": "Oktagon"
+    },
+    "host": "api-oktagon.stagingapps.net",
+    "basePath": "/core/api/v1",
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "paths": {        
+        "/banners": {
+            "get": {
+                "description": "Get all banners\n",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Banner type Slug",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannerIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new banner\n",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "banner",
+                        "in": "body",
+                        "description": "The banner JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BannerSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannerSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/banners/{id}": {
+            "get": {
+                "description": "View banner by ID\n",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the banner",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannerShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating Banner\n",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the banner",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "banner",
+                        "in": "body",
+                        "description": "The banner JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BannerUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannerUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Banner\n",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the banner",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BannerDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannerDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/bannerTypes": {
+            "get": {
+                "description": "Get all banner types\n",
+                "tags": [
+                    "Banner Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access Token",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new banner type\n",
+                "tags": [
+                    "Banner Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "banner",
+                        "in": "body",
+                        "description": "The banner JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/bannerTypes/{id}": {
+            "get": {
+                "description": "View banner type by ID\n",
+                "tags": [
+                    "Banner Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Banner type ID",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating banner type\n",
+                "tags": [
+                    "Banner Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Banner type ID",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "banner_types",
+                        "in": "body",
+                        "description": "The banner type JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Banner type\n",
+                "tags": [
+                    "Banner Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the banner type",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/BannertypeDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pages": {
+            "get": {
+                "description": "Get all pages\n",
+                "tags": [
+                    "Pages"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/PageIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new page\n",
+                "tags": [
+                    "Pages"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "body",
+                        "description": "The page JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PageSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/PageSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pages/{id}": {
+            "get": {
+                "description": "View page by ID\n",
+                "tags": [
+                    "Pages"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Page",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/PageShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating Page\n",
+                "tags": [
+                    "Pages"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Page",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "body",
+                        "description": "The Page JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PageUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/PageUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Page\n",
+                "tags": [
+                    "Pages"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Page",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PageDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/PageDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pageCategories": {
+            "get": {
+                "description": "Get all categories\n",
+                "tags": [
+                    "Page Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new category\n",
+                "tags": [
+                    "Page Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "body",
+                        "description": "The category JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pageCategories/{id}": {
+            "get": {
+                "description": "View category by ID\n",
+                "tags": [
+                    "Page Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating category\n",
+                "tags": [
+                    "Page Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "category",
+                        "in": "body",
+                        "description": "The category JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete category\n",
+                "tags": [
+                    "Page Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/pageCategoriesDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/newsletterEmails": {
+            "get": {
+                "description": "Get all emails\n",
+                "tags": [
+                    "Newsletter Emails"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new email\n",
+                "tags": [
+                    "Newsletter Emails"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "body",
+                        "description": "The email JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/newsletterEmails/{id}": {
+            "get": {
+                "description": "View email by ID\n",
+                "tags": [
+                    "Newsletter Emails"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the newsletter email",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating Banner\n",
+                "tags": [
+                    "Newsletter Emails"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the email",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "email",
+                        "in": "body",
+                        "description": "The email JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Banner\n",
+                "tags": [
+                    "Newsletter Emails"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the email",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/newsletterEmailsDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/menus": {
+            "get": {
+                "description": "Get all menus\n",
+                "tags": [
+                    "Menus"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/MenuIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new Menu\n",
+                "tags": [
+                    "Menus"
+                ],
+                "parameters": [
+                    {
+                        "name": "menu",
+                        "in": "body",
+                        "description": "The Menu JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MenuSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/MenuSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/menus/{id}": {
+            "get": {
+                "description": "View Menu by ID\n",
+                "tags": [
+                    "Menus"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Menu",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/MenuShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating Menu\n",
+                "tags": [
+                    "Menus"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Menu",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "body",
+                        "description": "The Menu JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MenuUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/MenuUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Menu\n",
+                "tags": [
+                    "Menus"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Menu",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MenuDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/MenuDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "description": "Get all products\n",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter the results",
+                        "type": "string",
+                        "default": "[{\"field\":\"category\",\"operator\":\"=\",\"value\":\"SMARTPHONES\"}]"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Order the results",
+                        "type": "string",
+                        "default": "[{\"field\":\"created_date\",\"sort\":\"DESC\"},{\"field\":\"price\",\"sort\":\"ASC\"}]"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "description": "View Product by Item no\n",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product Item no",
+                        "type": "integer",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/productCategories": {
+            "get": {
+                "description": "Get product categories\n",
+                "tags": [
+                    "Products"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductCategoryAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/products/lastViews": {
+            "post": {
+                "description": "View Guest last view products\n",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "items",
+                        "in": "body",
+                        "description": "Array Item no",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ProductLastviewRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/productRelateds": {
+            "get": {
+                "description": "Get products related item\n",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "ITEM_CODE",
+                        "in": "query",
+                        "description": "Item code of product",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/products/bestSeller": {
+            "get": {
+                "description": "Get best seller products\n",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter the results",
+                        "type": "string",
+                        "default": "[{\"field\":\"category\",\"operator\":\"=\",\"value\":\"SMARTPHONES\"}]"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Order the results",
+                        "type": "string",
+                        "default": "[{\"field\":\"created_date\",\"sort\":\"DESC\"},{\"field\":\"price\",\"sort\":\"ASC\"}]"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/staffFavourites": {
+            "get": {
+                "description": "Get staff favourites products\n",
+                "tags": [
+                    "Products - Staff Favourite"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter the results",
+                        "type": "string",
+                        "default": "[{\"field\":\"category\",\"operator\":\"=\",\"value\":\"SMARTPHONES\"}]"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/ProductIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new staff favourites\n",
+                "tags": [
+                    "Products - Staff Favourite"
+                ],
+                "parameters": [
+                    {
+                        "name": "staff",
+                        "in": "body",
+                        "description": "The product json you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/staffSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/staffSaveResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/priceCategories": {
+            "get": {
+                "description": "Get price categories\n",
+                "tags": [
+                    "Filter - Price Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter the results",
+                        "type": "string",
+                        "default": "[{\"field\":\"category\",\"operator\":\"=\",\"value\":\"SMARTPHONES\"}]"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/priceCategoriesIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create price categories for filter\n",
+                "tags": [
+                    "Filter - Price Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "staff",
+                        "in": "body",
+                        "description": "The product json you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/priceCategoriesIndex"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/priceCategoriesIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/shipping/province": {
+            "get": {
+                "description": "Get shiping provinces\n",
+                "tags": [
+                    "Shipping"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/shippingProvinceAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/shipping/city": {
+            "get": {
+                "description": "Get shiping cities\n",
+                "tags": [
+                    "Shipping"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/shippingCityAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/shipping/cost/{origin}/{destination}/{weight}/{courier}": {
+            "get": {
+                "description": "Get shiping province\n",
+                "tags": [
+                    "Shipping"
+                ],
+                "parameters": [
+                    {
+                        "name": "origin",
+                        "in": "path",
+                        "description": "Origin ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": 22
+                    },
+                    {
+                        "name": "destination",
+                        "in": "path",
+                        "description": "Destination ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": 155
+                    },
+                    {
+                        "name": "weight",
+                        "in": "path",
+                        "description": "Weight/gr",
+                        "type": "integer",
+                        "default": 200
+                    },
+                    {
+                        "name": "courier",
+                        "in": "path",
+                        "description": "Courier name",
+                        "type": "string",
+                        "default": "jne"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/shippingCostAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/shipping/tracking/{courier}/{resi}": {
+            "get": {
+                "description": "Tracking JNE\n",
+                "tags": [
+                    "Shipping"
+                ],
+                "parameters": [
+                    {
+                        "name": "courier",
+                        "in": "path",
+                        "description": "Courier name",
+                        "required": true,
+                        "type": "string",
+                        "default": "jne"
+                    },
+                    {
+                        "name": "resi",
+                        "in": "path",
+                        "description": "No Resi",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/shippingTrackAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/productPoints": {
+            "get": {
+                "description": "Get points of product\n",
+                "tags": [
+                    "Rewards Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/productPointsIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new product points\n",
+                "tags": [
+                    "Rewards Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "productPoints",
+                        "in": "body",
+                        "description": "The product point json you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productPointsSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/productPointsSaveResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "[POST] Bulk upload product points\n",
+                "tags": [
+                    "Rewards Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "productPoints",
+                        "in": "body",
+                        "description": "The product point json you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productPointsBulkSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/productPointsBulkSaveResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "get": {
+                "description": "Get all orders\n",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/OrderIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new order\n",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "body",
+                        "description": "The order JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/OrderSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/OrderSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "description": "View customer by ID\n",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Customer",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/OrdersShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating Order\n",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Order",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "body",
+                        "description": "The Customer JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/OrdersUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/OrdersUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Order\n",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Orders",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/OrdersDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/OrdersDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/comments": {
+            "get": {
+                "description": "Get all customers\n",
+                "tags": [
+                    "Comments"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CommentsIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new comments\n",
+                "tags": [
+                    "Comments"
+                ],
+                "parameters": [
+                    {
+                        "name": "comments",
+                        "in": "body",
+                        "description": "The comments JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CommentsSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CommentsSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/vote/{id}": {
+            "put": {
+                "description": "Create new comments\n",
+                "tags": [
+                    "Comments"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Customer",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "page",
+                        "in": "body",
+                        "description": "The Customer JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CommentsVoteUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CommentsVoteSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/rewardTypes": {
+            "get": {
+                "description": "Get all reward types\n",
+                "tags": [
+                    "Reward Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new reward types\n",
+                "tags": [
+                    "Reward Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "banner",
+                        "in": "body",
+                        "description": "The banner JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/rewardTypes/{id}": {
+            "get": {
+                "description": "View reward types\n",
+                "tags": [
+                    "Reward Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the banner types",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating reward types\n",
+                "tags": [
+                    "Reward Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the reward types",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "reward",
+                        "in": "body",
+                        "description": "The reward JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete reward types\n",
+                "tags": [
+                    "Reward Types"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the reward types",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardTypesDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/rewardLogs": {
+            "get": {
+                "description": "Get all reward logs\n",
+                "tags": [
+                    "Reward Logs"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Auth token",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsIndexAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new reward types\n",
+                "tags": [
+                    "Reward Logs"
+                ],
+                "parameters": [
+                    {
+                        "name": "banner",
+                        "in": "body",
+                        "description": "The banner JSON you want to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsSaveAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/rewardLogs/{id}": {
+            "get": {
+                "description": "View reward types\n",
+                "tags": [
+                    "Reward Logs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the reward logs",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsShowAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updating reward logs\n",
+                "tags": [
+                    "Reward Logs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the reward logs",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "reward",
+                        "in": "body",
+                        "description": "The reward JSON you want to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsUpdateAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete reward logs\n",
+                "tags": [
+                    "Reward Logs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the reward logs",
+                        "type": "integer",
+                        "required": true
+                    },
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Access token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsDeleteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/rewardLogsDeleteAPI"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/login": {
+            "post": {
+                "description": "Getting access token\n",
+                "tags": [
+                    "Authentication"
+                ],
+                "parameters": [
+                    {
+                        "name": "credential",
+                        "in": "body",
+                        "description": "The credential JSON you want to send",
+                        "schema": {
+                            "$ref": "#/definitions/accessToken"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "title": "Refresh Token",
+                            "type": "object",
+                            "$ref": "#/definitions/authResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/unsubscribe": {
+            "post": {
+                "description": "Unsubscribe Newsletter\n",
+                "tags": [
+                    "Newsletter"
+                ],
+                "parameters": [
+                    {
+                        "name": "unsubscribe_token",
+                        "in": "body",
+                        "description": "The unsubscribe token",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UnsubscribeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/UnsubscribeSuccess"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/customerInvitations": {
+            "get": {
+                "description": "View Customer Invitation List\n",
+                "tags": [
+                    "Customer Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationList"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/customerInvitations/import": {
+            "post": {
+                "description": "Import Customer Invitation List\n",
+                "tags": [
+                    "Customer Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "invitation",
+                        "in": "query",
+                        "description": "Invitation File",
+                        "type": "file",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationImport"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/registerInvitation/send": {
+            "post": {
+                "description": "Send customer invitation emails\n",
+                "tags": [
+                    "Customer Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Customer Invitation ID",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationEmails"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/customerInvitationsContents": {
+            "get": {
+                "description": "View customer invitation content\n",
+                "tags": [
+                    "Customer Invitations Content"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationContentList"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Add customer invitation content\n",
+                "tags": [
+                    "Customer Invitations Content"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access Token",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "in": "query",
+                        "description": "Invitation Content Subject",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "query",
+                        "description": "Invitation Content Body",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationContentAdd"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/customerInvitationsContents/{id}": {
+            "put": {
+                "description": "Updating Customer Invitation Content\n",
+                "tags": [
+                    "Customer Invitations Content"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access Token",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Customer Invitation Content",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Customer name",
+                        "required": false
+                    },
+                    {
+                        "name": "email",
+                        "in": "body",
+                        "description": "Customer Email",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationContentUpdate"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Customer Invitation Content\n",
+                "tags": [
+                    "Customer Invitations Content"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the customer invitation",
+                        "type": "integer",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/CustomerInvitationContentDelete"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/disallowedWords": {
+            "get": {
+                "description": "View disallowed words\n",
+                "tags": [
+                    "Disallowed Word"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/DisallowedWordList"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Add disallowed word\n",
+                "tags": [
+                    "Disallowed Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access Token",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "word",
+                        "in": "query",
+                        "description": "Word Value",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/DisallowedWordAdd"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/disallowedWords/{id}": {
+            "put": {
+                "description": "Updating disallowed word\n",
+                "tags": [
+                    "Disallowed Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access Token",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the word",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "word",
+                        "in": "body",
+                        "description": "word value",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/DisallowedWordUpdate"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete disallowed word\n",
+                "tags": [
+                    "Disallowed Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the word",
+                        "type": "integer",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "schema": {
+                            "$ref": "#/definitions/DisallowedWordDelete"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "BannerIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BannerIndex"
+                    }
+                }
+            }
+        },
+        "BannerIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/BannerShow"
+                }
+            }
+        },
+        "BannerShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "banner_type_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "banner_type_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/BannerSave"
+                }
+            }
+        },
+        "BannerSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "banner_type_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "banner_type_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/BannerUpdate"
+                }
+            }
+        },
+        "BannerUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "banner_type_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannerDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "BannertypeIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BannertypeIndex"
+                    }
+                }
+            }
+        },
+        "BannertypeIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/BannertypeSave"
+                }
+            }
+        },
+        "BannertypeSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/BannertypeShow"
+                }
+            }
+        },
+        "BannertypeShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/BannertypeUpdate"
+                }
+            }
+        },
+        "BannertypeUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "BannertypeDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "PageIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PageIndex"
+                    }
+                }
+            }
+        },
+        "PageIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "page_category_id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/PageShow"
+                }
+            }
+        },
+        "PageShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "page_category_id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "page_category_id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/PageSave"
+                }
+            }
+        },
+        "PageSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "page_category_id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "page_category_id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/PageUpdate"
+                }
+            }
+        },
+        "PageUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "page_category_id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "PageDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "pageCategoriesIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pageCategoriesIndex"
+                    }
+                }
+            }
+        },
+        "pageCategoriesIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/pageCategoriesShow"
+                }
+            }
+        },
+        "pageCategoriesShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/pageCategoriesSave"
+                }
+            }
+        },
+        "pageCategoriesSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/pageCategoriesUpdate"
+                }
+            }
+        },
+        "pageCategoriesUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "pageCategoriesDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "newsletterEmailsIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/newsletterEmailsIndex"
+                    }
+                }
+            }
+        },
+        "newsletterEmailsIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "newsletterEmailsShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/newsletterEmailsShow"
+                }
+            }
+        },
+        "newsletterEmailsShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "newsletterEmailsSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "newsletterEmailsSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/newsletterEmailsSave"
+                }
+            }
+        },
+        "newsletterEmailsSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "newsletterEmailsUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "newsletterEmailsUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/newsletterEmailsUpdate"
+                }
+            }
+        },
+        "newsletterEmailsUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "newsletterEmailsDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "newsletterEmailsDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "MenuIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MenuIndex"
+                    }
+                }
+            }
+        },
+        "MenuIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                }
+            }
+        },
+        "MenuShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/MenuShow"
+                }
+            }
+        },
+        "MenuShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "MenuSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                }
+            }
+        },
+        "MenuSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/MenuSave"
+                }
+            }
+        },
+        "MenuSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "MenuUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                }
+            }
+        },
+        "MenuUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/MenuUpdate"
+                }
+            }
+        },
+        "MenuUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "MenuDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "MenuDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ProductIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductIndex"
+                    }
+                }
+            }
+        },
+        "ProductIndex": {
+            "properties": {
+                "item_no": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductIndexDetail"
+                    }
+                },
+                "created_date": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "string"
+                },
+                "web_active": {
+                    "type": "string"
+                }
+            }
+        },
+        "ProductIndexDetail": {
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "ProductShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/ProductShow"
+                }
+            }
+        },
+        "ProductShow": {
+            "properties": {
+                "item_no": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductIndexDetail"
+                    }
+                },
+                "created_date": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "string"
+                },
+                "web_active": {
+                    "type": "string"
+                }
+            }
+        },
+        "ProductLastviewRequest": {
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "Produt Item no"
+                    }
+                }
+            }
+        },
+        "ProductCategoryAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductCategory"
+                    }
+                }
+            }
+        },
+        "ProductCategory": {
+            "properties": {
+                "active": {
+                    "type": "string"
+                },
+                "web_active": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_cat": {
+                    "type": "string"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductCategoryItem"
+                    }
+                }
+            }
+        },
+        "ProductCategoryItem": {
+            "properties": {
+                "active": {
+                    "type": "string"
+                },
+                "web_active": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_cat": {
+                    "type": "string"
+                }
+            }
+        },
+        "staffSaveRequest": {
+            "properties": {
+                "item_no": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                }
+            }
+        },
+        "staffSaveResponse": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/staffSave"
+                    }
+                }
+            }
+        },
+        "staffSave": {
+            "properties": {
+                "item_no": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                }
+            }
+        },
+        "priceCategoriesIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/priceCategoriesIndex"
+                    }
+                }
+            }
+        },
+        "priceCategoriesIndex": {
+            "properties": {
+                "price_code": {
+                    "type": "string"
+                },
+                "price1": {
+                    "type": "string"
+                },
+                "price2": {
+                    "type": "string"
+                }
+            }
+        },
+        "accessToken": {
+            "properties": {
+                "grant_type": {
+                    "type": "string"
+                },
+                "client_id": {
+                    "type": "integer"
+                },
+                "client_secret": {
+                    "type": "string"
+                },
+                "username": {
+                    "description": "Email",
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "authResponse": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "token_type": {
+                    "type": "string"
+                },
+                "expired_in": {
+                    "type": "integer"
+                }
+            }
+        },
+        "shippingProvinceAPI": {
+            "properties": {
+                "rajaongkir": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingProvince"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/shippingProvinceResults"
+                    }
+                }
+            }
+        },
+        "shippingProvince": {
+            "properties": {
+                "query": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "integer"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "shippingProvinceResults": {
+            "properties": {
+                "province_id": {
+                    "type": "integer"
+                },
+                "province": {
+                    "type": "string"
+                }
+            }
+        },
+        "shippingCityAPI": {
+            "properties": {
+                "rajaongkir": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingCity"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/shippingCityResults"
+                    }
+                }
+            }
+        },
+        "shippingCity": {
+            "properties": {
+                "query": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "shippingCityResults": {
+            "properties": {
+                "city_id": {
+                    "type": "string"
+                },
+                "province_id": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "city_name": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                }
+            }
+        },
+        "shippingCostAPI": {
+            "properties": {
+                "rajaongkir": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingCost"
+                },
+                "status": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingCostStatus"
+                },
+                "origin_details": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingCostOrigin"
+                },
+                "destination_details": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingCostDestination"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/shippingCostResults"
+                    }
+                }
+            }
+        },
+        "shippingCost": {
+            "properties": {
+                "query": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "object",
+                    "properties": {
+                        "origin": {
+                            "type": "string"
+                        },
+                        "destination": {
+                            "type": "string"
+                        },
+                        "weight": {
+                            "type": "integer"
+                        },
+                        "courier": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "shippingCostStatus": {
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "shippingCostOrigin": {
+            "properties": {
+                "city_id": {
+                    "type": "string"
+                },
+                "province_id": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "city_name": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                }
+            }
+        },
+        "shippingCostDestination": {
+            "properties": {
+                "city_id": {
+                    "type": "string"
+                },
+                "province_id": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "city_name": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                }
+            }
+        },
+        "shippingCostResults": {
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "costs": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "value": {
+                                "type": "integer"
+                            },
+                            "etd": {
+                                "type": "string"
+                            },
+                            "note": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "shippingTrackAPI": {
+            "properties": {
+                "rajaongkir": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingTrack"
+                },
+                "status": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingTrackStatus"
+                },
+                "results": {
+                    "type": "object",
+                    "$ref": "#/definitions/shippingTrackResults"
+                }
+            }
+        },
+        "shippingTrack": {
+            "properties": {
+                "query": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "shippingTrackStatus": {
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "shippingTrackResults": {
+            "properties": {
+                "delivered": {
+                    "type": "boolean"
+                },
+                "summary": {
+                    "type": "object",
+                    "properties": {
+                        "courier_code": {
+                            "type": "string"
+                        },
+                        "courier_name": {
+                            "type": "string"
+                        },
+                        "waybill_number": {
+                            "type": "string"
+                        },
+                        "shipper_name": {
+                            "type": "string"
+                        },
+                        "receiver_name": {
+                            "type": "string"
+                        },
+                        "origin": {
+                            "type": "string"
+                        },
+                        "destination": {
+                            "type": "string"
+                        },
+                        "status": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "waybill_number": {
+                            "type": "string"
+                        },
+                        "waybill_date": {
+                            "type": "string"
+                        },
+                        "waybill_time": {
+                            "type": "string"
+                        },
+                        "weight": {
+                            "type": "string"
+                        },
+                        "origin": {
+                            "type": "string"
+                        },
+                        "destination": {
+                            "type": "string"
+                        },
+                        "shippper_name": {
+                            "type": "string"
+                        },
+                        "shipper_address1": {
+                            "type": "string"
+                        },
+                        "shipper_address2": {
+                            "type": "string"
+                        },
+                        "shipper_address3": {
+                            "type": "string"
+                        },
+                        "shipper_city": {
+                            "type": "string"
+                        },
+                        "receiver_name": {
+                            "type": "string"
+                        },
+                        "receiver_address1": {
+                            "type": "string"
+                        },
+                        "receiver_address2": {
+                            "type": "string"
+                        },
+                        "receiver_address3": {
+                            "type": "string"
+                        },
+                        "receiver_city": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "delivery_status": {
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "string"
+                        },
+                        "pod_receiver": {
+                            "type": "string"
+                        },
+                        "pod_date": {
+                            "type": "string"
+                        },
+                        "pod_time": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "manifest": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "manifest_code": {
+                                "type": "string"
+                            },
+                            "manifest_description": {
+                                "type": "string"
+                            },
+                            "manifest_date": {
+                                "type": "string"
+                            },
+                            "manifest_time": {
+                                "type": "string"
+                            },
+                            "city_name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "productPointsIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/productPointsIndex"
+                    }
+                }
+            }
+        },
+        "productPointsIndex": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "created_date": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "productPointsSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "string"
+                }
+            }
+        },
+        "productPointsSaveResponse": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/productPointsSave"
+                }
+            }
+        },
+        "productPointsSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "productPointsBulkSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "product_id": {
+                                "type": "string"
+                            },
+                            "point": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "productPointsBulkSaveResponse": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/productPointsBulkSave"
+                    }
+                }
+            }
+        },
+        "productPointsBulkSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrderIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OrderIndex"
+                    }
+                }
+            }
+        },
+        "OrderIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "shipping_address_1": {
+                    "type": "string"
+                },
+                "shipping_address_2": {
+                    "type": "string"
+                },
+                "shipping_postcode": {
+                    "type": "string"
+                },
+                "shipping_city": {
+                    "type": "string"
+                },
+                "shipping_state": {
+                    "type": "string"
+                },
+                "shipping_country": {
+                    "type": "string"
+                },
+                "payment_method_id": {
+                    "type": "integer"
+                },
+                "order_total": {
+                    "type": "string"
+                },
+                "special_request": {
+                    "type": "string"
+                },
+                "order_status_id": {
+                    "type": "integer"
+                },
+                "shipping_courier": {
+                    "type": "string"
+                },
+                "shipping_courier_service": {
+                    "type": "string"
+                },
+                "tracking_number": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrderSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "shipping_address_1": {
+                    "type": "string"
+                },
+                "shipping_address_2": {
+                    "type": "string"
+                },
+                "shipping_postcode": {
+                    "type": "string"
+                },
+                "shipping_city": {
+                    "type": "string"
+                },
+                "shipping_state": {
+                    "type": "string"
+                },
+                "shipping_country": {
+                    "type": "string"
+                },
+                "payment_method_id": {
+                    "type": "integer"
+                },
+                "order_total": {
+                    "type": "string"
+                },
+                "special_request": {
+                    "type": "string"
+                },
+                "order_status_id": {
+                    "type": "integer"
+                },
+                "shipping_courier": {
+                    "type": "string"
+                },
+                "shipping_courier_service": {
+                    "type": "string"
+                },
+                "tracking_number": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrderSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/OrderSave"
+                }
+            }
+        },
+        "OrderSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "shipping_address_1": {
+                    "type": "string"
+                },
+                "shipping_address_2": {
+                    "type": "string"
+                },
+                "shipping_postcode": {
+                    "type": "string"
+                },
+                "shipping_city": {
+                    "type": "string"
+                },
+                "shipping_state": {
+                    "type": "string"
+                },
+                "shipping_country": {
+                    "type": "string"
+                },
+                "payment_method_id": {
+                    "type": "integer"
+                },
+                "order_total": {
+                    "type": "string"
+                },
+                "special_request": {
+                    "type": "string"
+                },
+                "order_status_id": {
+                    "type": "integer"
+                },
+                "shipping_courier": {
+                    "type": "string"
+                },
+                "shipping_courier_service": {
+                    "type": "string"
+                },
+                "tracking_number": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrdersUpdateRequest": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "order_status_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "OrdersUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/OrdersUpdate"
+                }
+            }
+        },
+        "OrdersUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "order_status_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "OrdersShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/OrdersShow"
+                }
+            }
+        },
+        "OrdersShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "address_1": {
+                    "type": "string"
+                },
+                "address_2": {
+                    "type": "string"
+                },
+                "postcode": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrdersDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrdersDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "CommentsIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CommentsIndex"
+                    }
+                }
+            }
+        },
+        "CommentsIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "messages": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "vote": {
+                    "type": "string"
+                },
+                "upvote": {
+                    "type": "string"
+                },
+                "downvote": {
+                    "type": "string"
+                }
+            }
+        },
+        "CommentsSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "messages": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "vote": {
+                    "type": "string"
+                },
+                "upvote": {
+                    "type": "string"
+                },
+                "downvote": {
+                    "type": "string"
+                }
+            }
+        },
+        "CommentsSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/CommentsSave"
+                }
+            }
+        },
+        "CommentsSave": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "messages": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "vote": {
+                    "type": "string"
+                },
+                "upvote": {
+                    "type": "string"
+                },
+                "downvote": {
+                    "type": "string"
+                }
+            }
+        },
+        "CommentsVoteSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "$ref": "#/definitions/CommentsVoteSave"
+                }
+            }
+        },
+        "CommentsVoteSave": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "messages": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "vote": {
+                    "type": "string"
+                },
+                "upvote": {
+                    "type": "string"
+                },
+                "downvote": {
+                    "type": "string"
+                }
+            }
+        },
+        "CommentsVoteUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "comment_id": {
+                    "type": "integer"
+                },
+                "vote": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rewardTypesIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/rewardTypesIndex"
+                    }
+                }
+            }
+        },
+        "rewardTypesIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardTypesSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rewardTypesSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/rewardTypesSave"
+                }
+            }
+        },
+        "rewardTypesSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardTypesShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/rewardTypesShow"
+                }
+            }
+        },
+        "rewardTypesShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardTypesUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rewardTypesUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/rewardTypesUpdate"
+                }
+            }
+        },
+        "rewardTypesUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardTypesDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardTypesDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rewardLogsIndexAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/rewardLogsIndex"
+                    }
+                }
+            }
+        },
+        "rewardLogsIndex": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "reward_type_id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "reference_id": {
+                    "type": "integer"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardLogsSaveRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "reward_type_id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "reference_id": {
+                    "type": "integer"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rewardLogsSaveAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/rewardLogsSave"
+                }
+            }
+        },
+        "rewardLogsSave": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "reward_type_id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "reference_id": {
+                    "type": "integer"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardLogsShowAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/rewardLogsShow"
+                }
+            }
+        },
+        "rewardLogsShow": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "reward_type_id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "reference_id": {
+                    "type": "integer"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardLogsUpdateRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                },
+                "reward_type_id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "reference_id": {
+                    "type": "integer"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rewardLogsUpdateAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/rewardLogsUpdate"
+                }
+            }
+        },
+        "rewardLogsUpdate": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "reward_type_id": {
+                    "type": "integer"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "reference_id": {
+                    "type": "integer"
+                },
+                "point": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardLogsDeleteRequest": {
+            "properties": {
+                "access_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "rewardLogsDeleteAPI": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "MetaResponse": {
+            "properties": {
+                "total": {
+                    "type": "integer"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                },
+                "last_updated": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "error": {
+                    "type": "string"
+                }
+            }
+        },
+        "UnsubscribeRequest": {
+            "properties": {
+                "unsubscribe_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "UnsubscribeSuccess": {
+            "properties": {
+                "meta": {
+                    "type": "string"
+                },
+              
+                "success": {
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerInvitationList": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/CustomerInvitationListData"
+                }
+
+            }
+        },
+        "CustomerInvitationListData": {
+            "properties": {
+                "id": {
+                    "type" : "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "invitation_token": {
+                    "type": "string"
+                },
+                "batch_id": {
+                    "type": "string"
+                },
+                "is_sent": {
+                    "type": "integer"
+                },
+                "is_active": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerInvitationImport": {
+            "properties": {
+                "meta": {
+                    "type": "string"
+                },
+              
+                "success": {
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerInvitationEmails": {
+            "properties": {
+                "meta": {
+                    "type": "string"
+                },
+              
+                "success": {
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerInvitationContentList": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/CustomerInvitationContentListData"
+                }
+            }
+        },
+        "CustomerInvitationContentListData": {
+            "properties": {
+                "subject": {
+                    "type" : "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "logs": {
+                    "type": "object"
+                }
+            }
+        },
+        "CustomerInvitationContentAdd": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/CustomerInvitationContentListData"
+                }
+            }
+        },
+        "CustomerInvitationContentUpdate": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/CustomerInvitationContentListData"
+                }
+            }
+        },
+        "CustomerInvitationContentDelete": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "DisallowedWordList": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/DisallowedWordListData"
+                }
+            }
+        },
+        "DisallowedWordListData": {
+            "properties": {
+                "id": {
+                    "type" : "integer"
+                },
+                "word": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "DisallowedWordAdd": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/DisallowedWordListData"
+                }
+            }
+        },
+        "DisallowedWordUpdate": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/DisallowedWordListData"
+                }
+            }
+        },
+        "DisallowedWordDelete": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "$ref": "#/definitions/MetaResponse"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ErrorResponse": {
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

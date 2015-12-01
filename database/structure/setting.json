@@ -1,0 +1,14 @@
+[
+	{
+		"field":"code:string",
+		"validation":"required"
+	},
+	{
+		"field":"title:string",
+		"validation":"required"
+	},
+	{
+		"field":"value:string",
+		"validation":""
+	}
+]

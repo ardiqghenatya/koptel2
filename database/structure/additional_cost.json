@@ -1,0 +1,14 @@
+[
+	{
+		"field":"cost_id:string",
+		"validations":"required"
+	},
+	{
+		"field":"cost_code:string",
+		"validations":"required"
+	},
+	{
+		"field":"cost_title:string:nullable",
+		"validations":""
+	}
+]

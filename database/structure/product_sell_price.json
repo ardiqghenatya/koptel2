@@ -1,0 +1,18 @@
+[
+	{
+		"field":"ITEM_MEASURE_ID:integer",
+		"validations":"required"
+	},
+	{
+		"field":"MEAS_TYPE:integer",
+		"validations":"required"
+	},
+	{
+		"field":"ITEMNO:string",
+		"validations":"required"
+	},
+	{
+		"field":"SELLPRIC:integer",
+		"validations":"required"
+	}
+]

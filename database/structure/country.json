@@ -1,0 +1,10 @@
+[
+	{
+		"field":"country_name:string",
+		"validations":"required"
+	},
+	{
+		"field":"country_code:string:nullable",
+		"validations":""
+	}
+]

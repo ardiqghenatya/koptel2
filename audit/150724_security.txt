@@ -1,0 +1,15 @@
+
+Security Check Report
+~~~~~~~~~~~~~~~~~~~~~
+
+Checked file: C:\xampp2\htdocs\oktagon-api\composer.lock
+
+                                         
+  [OK]                                   
+  0 packages have known vulnerabilities  
+                                         
+
+             This checker can only detect vulnerabilities that are referenced
+ Disclaimer  in the SensioLabs security advisories database. Execute this
+             command regularly to check the newly discovered vulnerabilities.
+

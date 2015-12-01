@@ -1,0 +1,14 @@
+[
+	{
+		"field":"price_code:string",
+		"validation":"required"
+	},
+	{
+		"field":"price1:string",
+		"validation":"required"
+	},
+	{
+		"field":"price2:string",
+		"validation":""
+	}
+]

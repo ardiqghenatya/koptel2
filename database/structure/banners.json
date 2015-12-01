@@ -1,0 +1,30 @@
+[
+	{
+		"field":"banner_type_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"name:string",
+		"validations":"required"
+	},
+	{
+		"field":"caption:string:nullable",
+		"validations":""
+	},
+	{
+		"field":"content:text:nullable",
+		"validations":""
+	},
+	{
+		"field":"link:string",
+		"validations":"required"
+	},
+	{
+		"field":"image:string",
+		"validations":"required"
+	},
+	{
+		"field":"target_link:boolean",
+		"validations":""
+	}
+]

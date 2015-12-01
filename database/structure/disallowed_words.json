@@ -1,0 +1,6 @@
+[
+	{
+		"field":"word:string",
+		"validations":"required"
+	}
+]

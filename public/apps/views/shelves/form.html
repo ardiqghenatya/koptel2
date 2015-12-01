@@ -1,0 +1,85 @@
+<!-- row -->
+<div class="row">
+
+
+  <!-- col -->
+  <div class="col-md-12">
+
+    <!-- tile -->
+    <section class="tile" fullscreen="isFullscreen04">
+
+      <!-- tile header -->
+      <div class="tile-header dvd dvd-btm">
+        <h1 class="custom-font"><strong>Tambah</strong> {{pageInformation.title}}</h1>
+      </div>
+      <!-- /tile header -->
+
+      <!-- tile body -->
+      <div class="tile-body">
+
+
+        <form class="form-horizontal form-validation mt-20" novalidate name="form" role="form">
+
+          <div class="form-group">
+            <label for="code" class="col-sm-2 control-label">Nomor Lemari</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control underline-input" id="code" ng-model="data.code" name="code" required="required">
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="description">Keterangan</label>
+            <div class="col-sm-10">
+              <input class="form-control underline-input" id="description"  ng-model="data.description" name="description"></input>
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>
+
+          <!-- <div class="form-group">
+            <label class="col-sm-2 control-label" for="description">Status</label>
+            <div class="col-sm-10">
+
+                <label class="checkbox-inline checkbox-custom">
+                  <input type="radio" name="status" ng-model="data.status" ng-required="true"  value="1"><i></i> Ada
+                </label>
+                <label class="checkbox-inline checkbox-custom">
+                  <input type="radio" name="status" ng-model="data.status" ng-required="true"  value="0"><i></i> Tidak Ada
+                </label>
+
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/> -->
+
+          <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+              <!-- <button type="reset" class="btn btn-lightred" ng-click="form.$setPristine()" ng-if="!data.id">Cancel</button> -->
+              <button type="button" class="btn btn-lightred" ng-click="historyBack()" xng-if="data.id">Cancel</button>
+              <button type="submit" ng-click="save()" class="btn btn-default" ng-disabled="form.$invalid">Simpan</button>
+              <button type="submit" ng-click="save(true)" class="btn btn-default" ng-disabled="form.$invalid" ng-if="!data.id">Simpan &amp; Lanjutkan</button>
+            </div>
+          </div>
+
+        </form>
+
+
+      </div>
+      <!-- /tile body -->
+
+    </section>
+    <!-- /tile -->
+
+
+
+  </div>
+  <!-- /col -->
+
+
+</div>
+<!-- /row -->
+
+
+

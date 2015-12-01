@@ -1,0 +1,10 @@
+[
+	{
+		"field":"permission_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"user_id:integer",
+		"validations":"required"
+	}
+]

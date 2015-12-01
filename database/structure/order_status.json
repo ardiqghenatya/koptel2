@@ -1,0 +1,10 @@
+[
+	{
+		"field":"order_status_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"description:string",
+		"validations":"required"
+	}
+]

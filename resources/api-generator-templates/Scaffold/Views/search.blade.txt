@@ -1,0 +1,13 @@
+<tr>
+    {!! Form::open(['route' => '$MODEL_NAME_PLURAL_CAMEL$.index', 'method' => 'get', 'class'=>"", 'id'=>"search_form"]) !!}
+
+        $FIELDS$
+
+        <div class="form-group">
+        	<button type="submit" class="btn">
+        		<i class="fa fa-search"></i> Search
+        	</button>
+        </div>
+
+    {!! Form::close() !!}
+</tr>

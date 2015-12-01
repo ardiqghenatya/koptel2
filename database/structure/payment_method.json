@@ -1,0 +1,22 @@
+[
+	{
+		"field":"payment_group:string",
+		"validations":"required"
+	},
+	{
+		"field":"payment_name:string",
+		"validations":"required"
+	},
+	{
+		"field":"payment_code:string",
+		"validations":"required"
+	},
+	{
+		"field":"account_name:string:nullable",
+		"validations":""
+	},
+	{
+		"field":"account_number:string:nullable",
+		"validations":""
+	}
+]

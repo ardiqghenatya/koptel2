@@ -1,0 +1,10 @@
+[
+	{
+		"field":"category:string",
+		"validations":"required"
+	},
+	{
+		"field":"category_filters:string",
+		"validations":"required"
+	}
+]

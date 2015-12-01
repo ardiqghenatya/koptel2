@@ -1,0 +1,10 @@
+[
+	{
+		"field":"product_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"rating:integer",
+		"validations":""
+	}
+]

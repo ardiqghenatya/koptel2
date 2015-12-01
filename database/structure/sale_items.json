@@ -1,0 +1,10 @@
+[
+	{
+		"field":"ITEMCODE:string",
+		"validation":"required"
+	},
+	{
+		"field":"AMOUNT:integer",
+		"validation":"required"
+	}
+]

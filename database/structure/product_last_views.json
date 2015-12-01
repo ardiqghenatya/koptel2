@@ -1,0 +1,10 @@
+[
+	{
+		"field":"customer_id:integer",
+		"validations":"required"
+	},
+	{
+		"field":"products:text",
+		"validations":"required"
+	}
+]

@@ -1,0 +1,118 @@
+<!-- row -->
+<div class="row">
+
+
+  <!-- col -->
+  <div class="col-md-12">
+
+    <!-- tile -->
+    <section class="tile" fullscreen="isFullscreen04">
+
+      <!-- tile header -->
+      <div class="tile-header dvd dvd-btm">
+        <h1 class="custom-font"><strong>Tambah</strong> {{pageInformation.title}}</h1>
+      </div>
+      <!-- /tile header -->
+
+      <!-- tile body -->
+      <div class="tile-body">
+
+
+        <form class="form-horizontal form-validation mt-20" novalidate name="form" role="form">
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="barcode">Barcode</label>
+            <div class="col-sm-3">
+              <input class="form-control underline-input" type="text" id="barcode" name="barcode" ng-model="data.barcode">
+              <!-- <select ui-jq="chosen" name="barcode_id" ui-options="{width: '240px'}" ng-model="data.barcode_id" required ng-disabled="!barcodes.length">
+                  <option value="">Cari Barcode</option>
+                  <option value="code" ng-repeat="(key, barcode) in barcodes" ng-bind="barcode.barcode" ng-value="barcode.id" ng-selected="barcode.id == data.barcode_id">Barcode</option>
+              </select> -->
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Lemari</label>
+            <div class="col-sm-10">
+              <select ui-jq="chosen" name="shelf_id" ui-options="{width: '240px'}" ng-model="data.shelf_id" required ng-disabled="!shelves.length">
+                  <option value="">Cari Lemari</option>
+                  <option value="code" ng-repeat="(key, shelf) in shelves" ng-bind="shelf.code" ng-value="shelf.id" ng-selected="shelf.id == data.shelf_id">Code</option>
+              </select>
+              <p class="help-block" ng-if="!shelves.length">Tidak ada lemari yang bisa digunakan <a ui-sref="app.shelf.add({backTo: 'app.barcodeProcess.add'})">Tambah Lemari</a></p>
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>
+
+          <!-- <div class="form-group">
+            <label class="col-sm-2 control-label" for="description">Status</label>
+            <div class="col-sm-10">
+
+                <label class="checkbox-inline checkbox-custom">
+                  <input type="radio" name="status" ng-model="data.status" ng-required="true"  value="Ambil"><i></i> Ambil
+                </label>
+                <label class="checkbox-inline checkbox-custom">
+                  <input type="radio" name="status" ng-model="data.status" ng-required="true"  value="Tidak Ambil"><i></i> Tidak Ambil
+                </label>
+
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-1">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Tanggal Transaksi</label>
+                <div class="col-sm-8">
+                  <div style="display:inline-block; min-height:290px;">
+                    <datepicker ng-model="data.came_date" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>  -->
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="description">Keterangan</label>
+            <div class="col-sm-10">
+              <input class="form-control underline-input" id="description"  ng-model="data.description" name="description" ></input>
+            </div>
+          </div>
+
+          <hr class="line-dashed line-full"/>
+
+          <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+              <!-- <button type="reset" class="btn btn-lightred" ng-click="form.$setPristine()" ng-if="!data.id">Cancel</button> -->
+              <button type="button" class="btn btn-lightred" ng-click="historyBack()" xng-if="data.id">Cancel</button>
+              <button type="submit" ng-click="save()" class="btn btn-default" ng-disabled="form.$invalid">Simpan</button>
+              <button type="submit" ng-click="save(true)" class="btn btn-default" ng-disabled="form.$invalid" ng-if="!data.id">Simpan &amp; Lanjutkan</button>
+              <button type="submit" ng-click="save(true)" class="btn btn-default" ng-disabled="form.$invalid" ng-if="!data.id">test</button>
+            </div>
+          </div>
+
+        </form>
+
+
+      </div>
+      <!-- /tile body -->
+
+    </section>
+    <!-- /tile -->
+
+
+
+  </div>
+  <!-- /col -->
+
+
+</div>
+<!-- /row -->
+
+
+

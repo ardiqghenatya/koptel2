@@ -1,0 +1,127 @@
+
+<!-- row -->
+<div class="row">
+  <!-- col -->
+  <div class="col-md-12">
+
+    <!-- tile -->
+    <section class="tile" fullscreen="isFullscreen02">
+
+      <!-- tile header -->
+      <div class="tile-header dvd dvd-btm">
+        <h1 class="custom-font"><strong>Daftar </strong>{{pageInformation.title}}</h1>
+        <ul class="controls">
+          <li>
+            <a href="javascript:void(0)" ui-sref="app.{{pageInformation.route}}.add()"><i class="fa fa-plus" title="Tambah Data"></i></a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" tile-control-refresh ng-click="getData()" title="Perbarui Data">
+              <fa name="refresh"></fa> 
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- /tile header -->
+
+      <!-- tile widget -->
+      <div class="tile-widget">
+
+        <div class="row">
+
+          <div class="col-sm-3">
+            <select class="input-sm form-control inline w-sm" ng-model="selectedAction" ng-options="action.name for action in bulkActions">
+              <option value="">Bulk action</option>
+            </select>
+            <button class="btn btn-sm btn-default" ng-disabled="!selectedAction" ng-click="selectedAction.fn()">Apply</button>
+          </div>
+
+          <div class="col-sm-5">
+          </div>
+
+          <div class="col-sm-4">
+            <div class="input-group">
+              <input type="text" class="input-sm form-control" ng-model="query" ng-model-options="{ debounce: 500 }" placeholder="Search...">
+              <span class="input-group-btn">
+                <button class="btn btn-sm btn-default" type="button" ng-hide="query">Go!</button>
+                <button class="btn btn-sm btn-default" type="button" ng-show="query" ng-click="query=''">Clear!</button>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /tile widget -->
+
+
+      <!-- tile body -->
+      <div class="tile-body p-0">
+
+        <div class="table-responsive">
+          <table class="table st-table table-custom mb-0" st-table st-pipe="getData">
+            <thead>
+              <tr>
+                <th style="width:20px;">
+                  <label class="checkbox checkbox-custom checkbox-custom-sm m-0">
+                    <input type="checkbox" ng-model="selectedAll" ng-click="selectAll(selectedAll)"><i></i>
+                  </label>
+                </th>
+                <th style="width: 50px;">No</th>
+                <th st-sort="code" class="sorting" st-sort-default style="width: 150px;">Nomor Lemari</th>
+                <th st-sort="description" class="sorting">Keterangan</th>
+                <th st-sort="status" class="sorting" style="width: 100px;">Status</th>
+                <th style="width:160px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="row in data | limitTo:limit">
+                <td><label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-model="row.selected"><i></i></label></td>
+                <td>{{ getOffset() + 1 + $index }}</td>
+                <td>{{row.code}}</td>
+                <td>{{row.description}}</td>
+                <td>{{row.status == 1 ? 'Digunakan' : 'Kosong'}}</td>
+                <td style="text-align: center;">
+                  <a ui-sref="app.{{pageInformation.route}}.update({id: row.id})" class="btn btn-xs btn-default" ng-disabled="row.status == 1"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="javascript:void(0);" class="btn btn-xs btn-lightred" ng-click="deleteRecord(row)" ng-disabled="row.status == 1"><i class="fa fa-times"></i> Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+      <!-- /tile body -->
+
+      <!-- tile footer -->
+      <div class="tile-footer dvd dvd-top">
+        <div class="row">
+
+          <div class="col-sm-5 hidden-xs">
+            <select class="input-sm form-control inline w-sm" ng-model="selectedAction" ng-options="action.name for action in bulkActions">
+              <option value="">Bulk action</option>
+            </select>
+            <button class="btn btn-sm btn-default" ng-disabled="!selectedAction" ng-click="selectedAction.fn()">Apply</button>
+          </div>
+
+          <div class="col-sm-3 text-center">
+            <small class="text-muted" ng-if="message.total && message.total > 0">showing {{ getOffset() + 1 }}-{{ message.total &lt; getOffset() + limit ? message.total : getOffset() + limit }} of {{ message.total }} items</small>
+            <strong class="text-muted" ng-if="!message.total || message.total <= 0">==== Empty Data ====</strong>
+          </div>
+
+          <div class="col-sm-4 text-right">
+            <pagination ng-show="numPages>1" total-items="message.total" ng-model="page" items-per-page="limit" max-size="7" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="getData()"></pagination>
+          </div>
+
+        </div>
+      </div>
+      <!-- /tile footer -->
+
+    </section>
+    <!-- /tile -->
+
+  </div>
+  <!-- /col -->
+</div>
+<!-- /row -->
+

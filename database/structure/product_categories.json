@@ -1,0 +1,22 @@
+[
+	{
+		"field":"CATEGORY:string:primary",
+		"validations":"required"
+	},
+	{
+		"field":"DESCRIPT:string",
+		"validations":"required"
+	},
+	{
+		"field":"PARENTCAT:string",
+		"validations":""
+	},
+	{
+		"field":"WEB_ACTIVE:boolean:default,0",
+		"validations":"required"
+	},
+	{
+		"field":"ITEMCOUNT:integer",
+		"validations":""
+	}
+]

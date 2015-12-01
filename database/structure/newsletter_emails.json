@@ -1,0 +1,10 @@
+[
+	{
+		"field":"email:string",
+		"validations":"required"
+	},
+	{
+		"field":"customer_id:integer:nullable",
+		"validations":""
+	}
+]

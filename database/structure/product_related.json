@@ -1,0 +1,22 @@
+[
+	{
+		"field":"ACTIVE:string",
+		"validations":"required"
+	},
+	{
+		"field":"WEB_ACTIVE:string",
+		"validations":"required"
+	},
+	{
+		"field":"ITEM_UPG_ID:integer",
+		"validations":"required"
+	},
+	{
+		"field":"ITEM_CODE:string",
+		"validations":"required"
+	},
+	{
+		"field":"UPG_CODE:string",
+		"validations":"required"
+	}
+]

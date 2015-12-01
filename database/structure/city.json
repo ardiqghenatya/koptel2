@@ -1,0 +1,14 @@
+[
+	{
+		"field":"city_name:string",
+		"validations":"required"
+	},
+	{
+		"field":"city_code:string:nullable",
+		"validations":""
+	},
+	{
+		"field":"country_id:integer:nullable",
+		"validations":""
+	}
+]
